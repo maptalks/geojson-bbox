@@ -1,0 +1,28 @@
+{
+  "name": "@maptalks/geojson-bbox",
+  "version": "1.0.0",
+  "description": "Calculates bbox for GeoJSON object.",
+  "main": "dist/bbox.cjs.js",
+  "module": "dist/bbox.esm.js",
+  "browser": "dist/bbox.umd.js",
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "test": "mocha test/test.js",
+    "pretest": "npm run build"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "geojson",
+    "bbox"
+  ],
+  "author": "wsw0108@qq.com",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "mocha": "^9.1.3",
+    "rollup": "^2.62.0"
+  }
+}
