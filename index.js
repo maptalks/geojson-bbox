@@ -14,11 +14,6 @@ export default function bbox(geojson) {
     case 'Feature':
       feature(geojson, b);
       break;
-    case 'GeometryCollection':
-      for (let i = 0; i < geojson.geometries.length; i++) {
-        geometry(geojson.geometries[i], b);
-      }
-      break;
     default:
       geometry(geojson, b);
       break;
@@ -49,6 +44,11 @@ function geometry(g, b) {
       break;
     case 'MultiPolygon':
       multipolygon(g.coordinates, b);
+      break;
+    case 'GeometryCollection':
+      for (let i = 0; i < g.geometries.length; i++) {
+        geometry(g.geometries[i], b);
+      }
       break;
   }
 }
