@@ -1,6 +1,18 @@
 var expect = require('chai').expect,
   bbox = require('../');
 describe('Extra tests', function() {
+  it('Feature with null Geometry', function() {
+    expect(
+      bbox({
+        "type": "Feature",
+        "geometry": null,
+        "properties": null
+      })
+    ).to.be.instanceOf(Array)
+      .that.to.have.length(4)
+      .that.to.deep.equal([Number.POSITIVE_INFINITY, Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY, Number.NEGATIVE_INFINITY]);
+  });
+
   it('GeometryCollection as Feature.Geometry', function() {
     expect(
       bbox({

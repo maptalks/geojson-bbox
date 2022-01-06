@@ -26,6 +26,9 @@ function feature(f, b) {
 }
 
 function geometry(g, b) {
+  if (!g) {
+    return;
+  }
   switch (g.type) {
     case 'Point':
       point(g.coordinates, b);
