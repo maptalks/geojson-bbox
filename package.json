@@ -1,6 +1,6 @@
 {
   "name": "@maptalks/geojson-bbox",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Calculates bbox for GeoJSON object.",
   "main": "dist/bbox.cjs.js",
   "module": "dist/bbox.esm.js",
