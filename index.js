@@ -41,7 +41,7 @@ function geometry(g, b) {
       line(g.coordinates, b);
       break;
     case 'MultiLineString':
-      polygon(g.coordinates, b);
+      multiline(g.coordinates, b);
       break;
     case 'Polygon':
       polygon(g.coordinates, b);
@@ -71,15 +71,18 @@ function line(l, b) {
   }
 }
 
+function multiline(ml, b) {
+  for (let i = 0, len = ml.length; i < len; i++) {
+    line(ml[i], b);
+  }
+}
+
 function polygon(p, b) {
   //Just calculate the outer ring,Don't participate in the calculation of holes
   //测试10000个鄱阳湖的数据,表现为性能可以提高25%
   if (p.length) {
     line(p[0], b);
   }
-  // for (let i = 0; i < 1; i++) {
-  //   line(p[i], b);
-  // }
 }
 
 function multipolygon(mp, b) {
